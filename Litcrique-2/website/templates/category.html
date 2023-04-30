@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container my-5">
+    <h2 class="mb-4">Books in {{ category }}</h2>
+    <div class="row">
+        {% for book in books %}
+        <div class="col-md-4">
+            <a href="{{ url_for('views.book', title=book[0]) }}" class="book-link">
+                <img src="{{ book[2] }}" alt="{{ book[0] }}" class="book-image">
+            </a>
+            <div class="book-info">
+                <h2 class="book-title">{{ book[0] }}</h2>
+                <p class="book-author">By {{ book[1] }}</p>
+                <div class="book-rating">
+                    <div class="current-rating d-inline-flex align-items-center">
+                        {% for i in range(book[5]) %}
+                            <span class="fa fa-star checked" style="font-size: 24px;"></span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center mt-4">
+            {% if pagination.has_prev %}
+            <li class="page-item">
+                <a class="page-link" href="{{ url_for('views.category', category=category, page=pagination.prev_num) }}">Previous</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">Previous</span>
+            </li>
+            {% endif %}
+    
+            {% if pagination.page > 3 %}
+            <li class="page-item">
+                <a class="page-link" href="{{ url_for('views.category', category=category, page=1) }}">1</a>
+            </li>
+            {% endif %}
+    
+            {% if pagination.page > 4 %}
+            <li class="page-item disabled">
+                <span class="page-link">...</span>
+            </li>
+            {% endif %}
+    
+            {% for num in pagination.pages %}
+                {% if num %}
+                    {% if num == pagination.page %}
+                    <li class="page-item active">
+                        <span class="page-link">{{ num }} <span class="sr-only">(current)</span></span>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ url_for('views.category', category=category, page=num) }}">{{ num }}</a>
+                    </li>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+    
+    
+            {% if pagination.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="{{ url_for('views.category', category=category, page=pagination.next_num) }}">Next</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">Next</span>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    
+
+</div>
+
+{% endblock %}

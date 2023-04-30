@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if results|count > 50 %}
+    {% set results = results[:50] %}
+{% endif %}
+
+<div class="container my-5">
+    <div class="row">
+      {% for book in results %}
+      <div class="col-md-3">
+        <div class="book-card">
+          <a href="{{ url_for('views.book', title=book.title) }}" class="book-link">
+            <img src="{{ book.image }}" alt="{{ book.title }}" class="book-image">
+          </a>
+          <div class="book-info">
+            <h2 class="book-title">{{ book.title }}</h2>
+            <p class="book-author">By {{ book.authors }}</p>
+            <div class="book-rating">
+              <div class="current-rating d-inline-flex align-items-center">
+                {% for i in range(book.rating) %}
+                    <span class="fa fa-star checked" style="font-size: 24px;"></span>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}

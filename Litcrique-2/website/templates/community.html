@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+   
+
+      <div class="container my-4 mb-4">
+        <div class="row">
+          <div class="col-md-6">  
+            <div class="discussion-links">
+                <h2>Discussion Links</h2>
+                <ul class="link-list">
+                    <li><a href="#" class="link">Discussion Link 1 Bla Bla</a></li>
+                    <li><a href="#" class="link">Discussion Link 2 Bla</a></li>
+                    <li><a href="#" class="link">Discussion Link 3 Bla Bla</a></li>
+                    <li><a href="#" class="link">Discussion Link 4 BLa Bla</a></li>
+                    <li><a href="#" class="link">Discussion Link 5 Bla Bla</a></li>
+                    <li><a href="#" class="link">Discussion Link 6 Bla Bla</a></li>
+                </ul>
+                </div>
+          </div>       
+          <div class="col-md-6">
+            <div class="post-discussion">
+              <h2>Post a Discussion</h2>
+              <form>
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title"><br><br>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="10" cols="50"></textarea><br><br>
+                <input type="submit" value="Post Discussion">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+
+{% endblock %}

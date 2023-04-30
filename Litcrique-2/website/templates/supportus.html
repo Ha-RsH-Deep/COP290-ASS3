@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}  
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h2>Feature Suggestions</h2>
+            <p>If you enjoy using LitCritique, please consider supporting us. Your support helps us maintain and improve the site.</p>
+            <p>Use the form below to suggest a feature you'd like to see on the site. We appreciate your feedback!</p>
+            <p>Here are some features that we're considering adding to our website. Do you have any other suggestions? Let us know!</p>
+            <form>
+              <div class="mb-3">
+                <label for="feature-suggestion" class="form-label">Feature Suggestion</label>
+                <textarea class="form-control" id="feature-suggestion" rows="8"></textarea>
+              </div>
+              <button type="submit" class="btn btn-dark d-block mx-auto mb-3" style="width: 150px;">Submit</button>
+            </form>
+          </div>
+          <div class="col-md-6">
+            <h2>Report a Bug</h2>
+            <p>Found a bug on our website? Let us know so we can fix it!</p>
+            <form>
+              <div class="mb-3">
+                <label for="bug-report" class="form-label">Bug Report</label>
+                <textarea class="form-control" id="bug-report" rows="8"></textarea>
+              </div>
+              <button type="submit" class="btn btn-dark d-block mx-auto" style="width: 150px;">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+        
+
+
+
+{% endblock %}

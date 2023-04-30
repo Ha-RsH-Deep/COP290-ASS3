@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="column text-center" style="margin-top: 150px;">
+    <main class="w-75 form-signin m-auto" style="display:flex; justify-content:center; align-items:center;">
+      <form method="POST" style="border: 2px solid #343a40; padding: 20px; border-radius: 5px; text-align:center; width: 50%; margin-right: 20px;">
+        <h1 class="h3 mb-3 fw-normal">Login to your LitCritique account</h1>
+        {% with messages=get_flashed_messages() %}
+        {% if messages %}
+        <div class=" alert alert-danger" role="alert">
+          {{ messages[0] }}
+        </div>
+        {% endif %}
+        {% endwith %}
+        <div class="form-floating container" style="margin-top: 50px;max-width: 600px;">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Email" fdprocessedid="g5w9hf" name="email">
+          <label for="floatingInput">Email</label>
+        </div>
+        <div class="form-floating container" style="margin-top: 10px;max-width: 600px;">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" fdprocessedid="71yq0z" name="password">
+          <label for="floatingPassword">Password</label>
+        </div>
+        <button class="w-50 btn btn-lg btn-dark" style="margin-top: 20px;background-color:#000000;border-radius: 1.5rem;max-width: 300px;" role="button">Log in</button>
+        <p style="text-align: center; margin-top: 10px;">Don't have an account?<a href="signup" class="mx-3"> Sign up</a></p>
+        <a href="#" style="text-decoration: none;max-width: 400px; display: block; margin-top: 10px; text-align:right;">
+          <p style="color: black;">Forgot Password?</p>
+        </a>
+      </form>
+      <img src="./static/bookstack.png" style="width: 50%; height: auto; border-radius: 20px; margin-left: 20px;">
+    </main> 
+  </div>
+  
+
+
+
+{% endblock %}
