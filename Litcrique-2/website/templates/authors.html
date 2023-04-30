@@ -39,12 +39,7 @@
                 <span class="page-link">Previous</span>
             </li>
             {% endif %}
-    
-            {% if pagination.page > 3 %}
-            <li class="page-item">
-                <a class="page-link" href="{{ url_for('views.authorss', authors=authors, page=1) }}">1</a>
-            </li>
-            {% endif %}
+
     
             {% if pagination.page > 4 %}
             <li class="page-item disabled">
